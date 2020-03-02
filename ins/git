@@ -1,0 +1,47 @@
+sudo apt install -y git
+
+###############################################################################
+#
+# 1.This will set your global credentials
+# -replace 10411@mail.ru with your git user email
+# -replace 1101947 with your git user name
+#
+###############################################################################
+
+git config --global user.email "1768438@gmail.com" 
+git config --global user.name "442312"
+
+##############################################################################
+#
+# 2.This will set storing your credentials for 18000 seconds
+#
+##############################################################################
+
+git config --global credential.helper cache
+git config --global credential.helper 'cache --timeout=18000'
+
+##############################################################################
+#
+# 3.This will set the default push mode             
+# - only one line should be uncommented!
+#
+##############################################################################
+
+# git config --global push.default matching
+git config --global push.default simple
+
+##############################################################################
+#             
+# 4. Git basic usage 
+#
+##############################################################################
+
+There are only 6 commands for basic git usage. They are:
+
+git clone               -clones repository
+git status              -checks sync status
+git pull                -gets changes from server!RUN BEFORE change something
+
+git add -A              -adds allchanges to index!RUN FIRST AFTER change something
+git commit -m "blabla"  -commits changes!RUN SECOND AFTER change something
+git push                -sends changes to server!RUN THIRD AFTER change something
