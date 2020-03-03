@@ -1,0 +1,8 @@
+### Additional packages installed upon default crunchbang++
+
+sudo apt install -y doublecmd-gtk i3 xcalib neofetch tlp stow freeplane keepassx git emacs spacefm
+
+### Additional packages installed from binary files
+
+teamviewer 
+syncthing
