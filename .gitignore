@@ -1,2 +1,5 @@
 # ignore geany socket
 geany_socket*
+
+# ignore mpv watch later
+mpv/.config/mpv/watch_later
