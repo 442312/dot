@@ -1,0 +1,88 @@
+! font settings --------------------------------------------------------------
+
+Xft.autohint: true
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 96
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+! xscreensaver ---------------------------------------------------------------
+
+!font settings
+xscreensaver.Dialog.headingFont:        -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #101010
+xscreensaver.Dialog.background:         #D8D8D8
+xscreensaver.Dialog.topShadowColor:     #D8D8D8
+xscreensaver.Dialog.bottomShadowColor:  #D8D8D8
+xscreensaver.Dialog.Button.foreground:  #101010
+xscreensaver.Dialog.Button.background:  #E5E5E5
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #101010
+xscreensaver.Dialog.text.background:    #E5E5E5
+xscreensaver.Dialog.internalBorderWidth:24
+xscreensaver.Dialog.borderWidth:        0
+xscreensaver.Dialog.shadowThickness:    2
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #101010
+xscreensaver.passwd.thermometer.background:  #2E2E2E
+xscreensaver.passwd.thermometer.width:       8
+
+! urxvt ----------------------------------------------------------------------
+
+URxvt*font: xft:DejaVu Sans Mono:style=Book:pixelsize=12:antialias=true:hinting=true:hintsyle=hintfull
+URxvt*letterSpace: -1
+
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.scrollBar: false
+
+! special
+*.foreground:   #dcdcdc
+*.background:   #3f3f3f
+*.cursorColor:  #dcdcdc
+
+! black
+*.color0:       #999999
+*.color8:       #999999
+
+! red
+*.color1:       #cc9393
+*.color9:       #cc9393
+
+! green
+*.color2:       #7f9f7f
+*.color10:      #7f9f7f
+
+! yellow
+*.color3:       #e3ceab
+*.color11:      #e3ceab
+
+! blue
+*.color4:       #dfaf8f
+*.color12:      #dfaf8f
+
+! magenta
+*.color5:       #cc9393
+*.color13:      #cc9393
+
+! cyan
+*.color6:       #8cd0d3
+*.color14:      #8cd0d3
+
+! white
+*.color7:       #dcdccc
+*.color15:      #dcdccc
+
+
+
