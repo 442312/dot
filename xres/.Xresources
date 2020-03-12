@@ -53,7 +53,7 @@ URxvt.scrollBar: false
 *.cursorColor:  #dcdcdc
 
 ! black
-*.color0:       #999999
+*.color0:       #3f3f3f
 *.color8:       #999999
 
 ! red

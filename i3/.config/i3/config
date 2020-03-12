@@ -159,7 +159,7 @@ bindsym $mod+f exec jumpapp -f thunar
 bindsym $mod+Shift+f exec jumpapp doublecmd
 
 # raise or run thunar
-bindsym $mod+r exec jumpapp -t "Ranger" urxvt -e launch-ranger
+bindsym $mod+r exec jumpapp -t "ranger" urxvt -e ranger
 
 # raise or run geany
 bindsym $mod+a exec jumpapp geany

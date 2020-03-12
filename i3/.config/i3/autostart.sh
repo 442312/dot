@@ -13,6 +13,7 @@ conky -q &
 xss-lock -l blurlock &
 setxkbmap -layout 'us,ru' -option 'grp:caps_toggle' &
 fbxkb &
-xcalib ~/.icc/mac-default.icc
+xcalib ~/.icc/mac-default.icc &
+xmodmap .Xmodmap &
 #cbpp-compositor --start &
 #xscreensaver -no-splash &
