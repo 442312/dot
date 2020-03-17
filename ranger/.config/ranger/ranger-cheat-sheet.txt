@@ -1,0 +1,4 @@
+o (order) sort files/folders in different ways by next options
+on - sort natural
+oN - sort natural reverse order
+
