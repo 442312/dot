@@ -16,7 +16,7 @@
 ##############################################
 background yes
 use_xft yes
-xftfont Liberation Sans:size=9
+xftfont DejaVu Sans Mono:size=10
 xftalpha 1
 update_interval 1.0
 total_run_times 0
@@ -37,8 +37,8 @@ default_color FFF897
 default_shade_color 000000
 default_outline_color 828282
 alignment top_right
-gap_x 12
-gap_y 56
+gap_x 30
+gap_y 30
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
@@ -59,10 +59,10 @@ CPU usage:$alignr${cpu cpu0}%
 
 S H O R T C U T    K E Y S
 ${hr}
-W+d$alignr dmenu
+dot$alignr dmenu
 W+g$alignr split h
 W+v$alignr split v
-W+m$alignr fullscreen toggle
+W+f$alignr fullscreen toggle
 W+w$alignr tadded layout
 W+e$alignr split toggle
 W+S+Space$alignr floating toggle
@@ -71,12 +71,16 @@ W+s$alignr sticky toggle
 W+p$alignr focus parent
 W+c$alignr focus child
 ${hr}
-W+Enter$alignr URxvt
-W+t$alignr URxvt
-W+f$alignr Thunar
-W+S+f$alignr DoubleCommander
-W+r$alignr Ranger
-W+a$alignr Geany
-W+S+a$alignr Emacs
-W+b$alignr Firefox
+Enter$alignr URxvt
+0$alignr URxvt
+1$alignr Thunar
+2$alignr ranger
+3$alignr DoubleCommander
+4$alignr Emacs
+5$alignr Firefox
+6$alignr Geany
+7$alignr vim
+8$alignr list windows
+9$alignr mpv
+
 

@@ -1,0 +1,2 @@
+#!/bin/bash
+mpv printf %q "$(tail -n 1 $HOME/.config/mpv/history.log | sed 's/.*| //')"

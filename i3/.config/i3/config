@@ -37,6 +37,8 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
+bindsym KP_Up focus left
+
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -74,7 +76,7 @@ bindsym $mod+g split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+m fullscreen toggle
+bindsym $mod+f fullscreen toggle
 
 # change container layout (tabbed, toggle split)
 bindsym $mod+w layout tabbed
@@ -141,31 +143,40 @@ for_window [workspace=1] layout tabbed
 #### APPLICATIONS SHORTCUTS ####
 
 # start dmenu (a program launcher)
+bindsym KP_Delete exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Dejavu Sans Mono-10' -p 'dmenu'"
+
+# start dmenu (a program launcher)
 bindsym $mod+d exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Dejavu Sans Mono-10' -p 'dmenu'"
 
 # start terminal
 bindsym $mod+Return exec urxvt
 
+# start terminal
+bindsym KP_Enter exec urxvt
+
 # raise or run terminator
-bindsym $mod+t exec jumpapp urxvt
+bindsym KP_Insert exec jumpapp urxvt
 
 # raise or run firefox
-bindsym $mod+b exec jumpapp firefox
+bindsym KP_Begin exec jumpapp firefox
 
 # raise or run thunar
-bindsym $mod+f exec jumpapp -f thunar
+bindsym KP_End exec jumpapp -f thunar
 
 # raise or run doublecommander
-bindsym $mod+Shift+f exec jumpapp doublecmd
+bindsym KP_Next exec jumpapp doublecmd
 
 # raise or run thunar
-bindsym $mod+r exec jumpapp -t "ranger" urxvt -e ranger
+bindsym KP_Down exec jumpapp -t "ranger" urxvt -e ranger
 
 # raise or run geany
-bindsym $mod+a exec jumpapp geany
+bindsym KP_Right exec jumpapp geany
 
 # raise or run emacs
-bindsym $mod+Shift+a exec jumpapp emacs
+bindsym KP_Left exec jumpapp emacs
+
+# raise or run mpv
+bindsym KP_Prior exec jumpapp -c "mpv" mpv-run
 
 # volume controls
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -180,7 +191,7 @@ bindsym XF86AudioMute exec --no-startup-id volchange volmute
 #### APPEARANCE ####
 
 # font
-font pango:Dejavu Sans Mono 9
+font pango:Dejavu Sans Mono 10
 
 # class                 border  bground text    indicator child_border
 client.focused          #000000 #222222 #FFF897 #3A3426   #191919

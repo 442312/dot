@@ -1,0 +1,25 @@
+$sudo cryptsetup --cipher aes-xts-plain --key-size 512 --hash sha512 -v luksFormat /dev/sda2
+$sudo cryptsetup -v luksOpen /dev/sda2 sda2crypt
+$sudo mkfs -t ext4 -L sda2crypt /dev/mapper/sda2crypt
+$sudo mkdir /etc/luks-keys
+$sudo dd if=/dev/urandom of=/etc/luks-keys/sda2crypt bs=512 count=8
+$sudo cryptsetup -v luksAddKey /dev/sda2 /etc/luks-keys/sda2crypt
+$sudo cryptsetup -v luksClose sda2crypt
+$sudo cryptsetup -v luksOpen /dev/sda2 sda2crypt --key-file=/etc/luks-keys/sda2crypt 
+$sudo cryptsetup -v luksClose sda2crypt
+$sudo cryptsetup luksDump /dev/sda2 | grep "UUID"
+UUID:              8ade2522-3ba9-4ce7-911a-7fed7819e18e
+$sudo geany  /etc/crypttab
+-Paste
+sda2crypt UUID=8ade2522-3ba9-4ce7-911a-7fed7819e18e /etc/luks-keys/sda2crypt luks
+$sudo geany /etc/fstab
+-Paste
+/dev/mapper/sda2crypt /home ext4    defaults   0       2
+$sudo cryptsetup -v luksOpen /dev/sda2 sda2crypt --key-file=/etc/luks-keys/sda2crypt 
+$sudo mount /dev/mapper/sda2crypt /mnt
+$sudo mkdir /mnt/k01
+$sudo cp -r ~/* /mnt/k01/
+$sudo cp -r ~/.* /mnt/k01/
+$sudo chown -R k01:k01 /mnt/k01/
+$sudo umount /dev/mapper/sda2crypt
+$sudo cryptsetup -v luksClose sda2crypt

@@ -1,0 +1,14 @@
+Syncthing
+
+-Install and enable syncthing as a system service
+curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+sudo apt update
+sudo apt install syncthing
+syncthing
+sudo systemctl enable syncthing@k01.service
+sudo systemctl start syncthing@k01.service
+
+-Set up syncthing inotify limit to get filesystem watcher to work
+sudo sh -c 'echo 204800 > /proc/sys/fs/inotify/max_user_watches'
+echo "fs.inotify.max_user_watches=204800" | sudo tee -a /etc/sysctl.conf
