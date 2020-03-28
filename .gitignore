@@ -6,3 +6,6 @@ mpv/.config/mpv/watch_later
 
 # ignore mpv history log
 mpv/.config/mpv/history.log
+
+# ignore vim plugins
+vim/.vim/plugged

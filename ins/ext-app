@@ -1,0 +1,42 @@
+How to associate file with some extention with some application with no touching the default application for a MIME-type
+We will use for example assiciation of .ogr files to emacs app, using other default application for other plain text files
+
+1. For user-specific setting create a folder
+mkdir -p ~/.local/share/mime/packages
+
+1a. For system-wide use folder /usr/share/mime/packages
+
+2. Create file org.xml in this directory with this content
+
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+<mime-type type="application/emacsorgmode">
+<comment>Emacs Org-mode File</comment>
+<comment xml:lang="bg">Emacs Org-mode</comment>
+    <comment xml:lang="cs">Emacs Org-mode</comment>
+    <comment xml:lang="de">Emacs Org-mode</comment>
+    <comment xml:lang="es">Emacs Org-mode</comment>
+    <comment xml:lang="eu">Emacs Org-mode</comment>
+    <comment xml:lang="hu">Emacs Org-mode</comment>
+    <comment xml:lang="it">Emacs Org-mode</comment>
+    <comment xml:lang="ko">Emacs Org-mode</comment>
+    <comment xml:lang="nb">Emacs Org-mode</comment>
+    <comment xml:lang="nl">Emacs Org-mode</comment>
+    <comment xml:lang="nn">Emacs Org-mode</comment>
+    <comment xml:lang="sv">Emacs Org-mode</comment>
+    <comment xml:lang="uk">Emacs Org-mode</comment>
+    <comment xml:lang="vi">Emacs Org-mode</comment>
+<glob pattern="*.org"/>
+<alias type="application/emacsorgmode"/>
+</mime-type>
+</mime-info>
+
+3. Run 
+update-mime-database ~/.local/share/mime
+for user-specific installation
+
+3a. Run
+sudo update-mime-database /usr/share/mime
+for system-wide installation
+
+4. Restart file manager if it is running as a daemon.

@@ -1,0 +1,17 @@
+o (order) sort files/folders in different ways by next options
+on - sort natural
+oN - sort natural reverse order
+
+g (go) cd to different dirs by next options
+gh - go HOME
+g1 - go 010k01
+g2 - go 020k01
+gd - go dnl
+gw1 - go work010
+gw2 - go work020
+gt1 - go tmp010
+gt2 - go tmp020
+
+x - user actions
+xd - create directory
+xf - create file
