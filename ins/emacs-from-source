@@ -1,0 +1,22 @@
+1. To build emacs from source first install its build dependencies
+sudo apt install build-essential
+sudo apt build-dep emacs 
+
+2. Download emacs source code from
+http://ftp.gnu.org/gnu/emacs/
+
+3. Extract archive and cd to source code folder
+
+4. Run
+./configure
+Look at output if there are any errors. If they are find missing dependencies and install it manualy
+
+5. Run
+make
+
+Run binary from source_dir_name/src/emacs
+
+If emacs works install it
+
+6. Run 
+sudo make install
