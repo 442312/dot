@@ -1,0 +1,6 @@
+Install lf
+1. Download latest version (this code is for r13 release, check what release nuber is actual)
+wget -c https://github.com/gokcehan/lf/releases/download/r13/lf-linux-amd64.tar.gz -O - | tar -xz
+
+2. Move binary to preffered location (this location should be in the $PATH variable)
+sudo mv lf /usr/bin/
