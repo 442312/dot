@@ -28,6 +28,7 @@ set drawbox on
 # show hidden files
 set hidden on
 
+set color256 on
 #### KEY MAPPINGS ####
 
 # use enter for shell commands
