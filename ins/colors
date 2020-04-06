@@ -1,0 +1,64 @@
+==================================================================
+==================================================================
+                         K01 color scheme
+==================================================================
+==================================================================
+
+Old windows like color scheme
+Inspired by https://www.linux.org.ru/gallery/screenshots/15375196/
+Works good with Liberation Mono font
+
+Implemented with oomox k01 gtk theme
+with k01 papirus based icon theme
+
+Background
+ #c3c7cb
+Foreground
+ #000000
+Selection
+ #0000aa
+Icons main color
+ #f7f794
+
+Terminal colors VAR1
+*background:  #c3c7cb
+*foreground:  #000000
+*color0:  #b5c7aa
+*color1:  #8500cb
+*color2:  #487768
+*color3:  #854668
+*color4:  #2900ff
+*color5:  #8500ff
+*color6:  #0060ff
+*color7:  #000000
+*color8:  #fbffff
+*color9:  #960ad9
+*color10:  #5888b3
+*color11:  #9662b1
+*color12:  #380aff
+*color13:  #710aff
+*color14:  #1888ff
+*color15:  #434343
+
+Terminal colors VAR2
+*background:  #c3c7cb
+*foreground:  #000000
+*color0:  #20006a
+*color1:  #680042
+*color2:  #000040
+*color3:  #40001a
+*color4:  #19008e
+*color5:  #550074
+*color6:  #000070
+*color7:  #6e3841
+*color8:  #40004f
+*color9:  #68005d
+*color10:  #1b0048
+*color11:  #5b0029
+*color12:  #29009c
+*color13:  #6f0065
+*color14:  #000088
+*color15:  #6e3841
+
+===============================================================
+---------------------------------------------------------------
