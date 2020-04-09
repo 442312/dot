@@ -12,8 +12,8 @@ xset b off &
 conky -q &
 xss-lock -l blurlock &
 setxkbmap -layout 'us,ru' -option 'grp:caps_toggle' &
-gxkb $
-#fbxkb &
+#gxkb $
+fbxkb &
 #xcalib ~/.icc/mac-default.icc &
 #xmodmap .Xmodmap &
 #cbpp-compositor --start &

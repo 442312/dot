@@ -2,10 +2,10 @@
 geany_socket*
 
 # ignore mpv watch later
-/mpv/watch_later
+.config/mpv/watch_later
 
 # ignore mpv history log
-/mpv/history.log
+.config/mpv/history.log
 
 # ignore vim plugins
-vim/.vim/plugged
+.vim/plugged
