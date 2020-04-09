@@ -1,2 +1,0 @@
-#!/bin/bash
-printf "\033];Ranger\007"; ranger

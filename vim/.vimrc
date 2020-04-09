@@ -17,7 +17,7 @@ set incsearch
 set clipboard=unnamedplus
 
 " Set color scheme
-colors zenburn
+"colors zenburn
 
 " Enable syntax highlight
 syntax on
