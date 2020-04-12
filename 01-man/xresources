@@ -1,0 +1,4 @@
+.Xresources loads by display manger or manually with .xinitrc
+to do so paste the following to .xinitrc
+
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources

@@ -1,0 +1,26 @@
+#Install
+#Boot in EFI mode!
+
+pacstrap base base-devel linux linux-firmmware networkmanager nano lvm2 grub efibootmgr
+
+#After install
+
+systemctl enable NetworkManager
+systemctl start NetworkManager
+
+nmtui (to connect to wi-fi)
+
+useradd -m -G wheel k01
+passwd k01
+nano  /etc/sudoers
+# uncomment wheel
+
+#Todo
+
+fn light
+caps light when layout change
+power and performance settings
+suspend hibernate etc
+video
+audio
+touchpad

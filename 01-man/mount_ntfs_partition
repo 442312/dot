@@ -3,5 +3,8 @@
 #Make a directory for mount
 sudo mkdir -p /media/k01/diskD
 
+
 # Mount windows drive
+sudo geany /etc/fstab
+# paste
 /dev/sda1 /media/k01/diskD ntfs rw,auto,user,fmask=133,dmask=022,uid=1000,gid=1000 0 0
