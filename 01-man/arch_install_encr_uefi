@@ -15,6 +15,8 @@ passwd k01
 nano  /etc/sudoers
 # uncomment wheel
 
+sudo pacman -S reflector i3 dmenu geany rxvt-unicode xorg xorg-xinit mc ranger doublecmd-gtk2 firefox git syncthing libreoffice-still
+
 #Todo
 
 fn light
@@ -24,3 +26,4 @@ suspend hibernate etc
 video
 audio
 touchpad
+english for console and applications
