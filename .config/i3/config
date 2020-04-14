@@ -146,10 +146,12 @@ for_window [workspace=1] layout tabbed
 bindsym Print exec scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/dnl/'
 
 # start dmenu (a program launcher)
-bindsym KP_Delete exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Dejavu Sans Mono-10' -p 'dmenu'"
+#bindsym KP_Delete exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Dejavu Sans Mono-10' -p 'dmenu'"
+bindsym KP_Delete exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Liberation Sans Mono-10' -p 'dmenu'"
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Dejavu Sans Mono-10' -p 'dmenu'"
+#bindsym $mod+d exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Dejavu Sans Mono-10' -p 'dmenu'"
+bindsym $mod+d exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Liberation Sans Mono-10' -p 'dmenu'"
 
 # start terminal
 bindsym $mod+Return exec urxvt
@@ -182,19 +184,20 @@ bindsym KP_Left exec jumpapp emacs
 bindsym KP_Prior exec jumpapp -c "mpv" mpv-run
 
 # volume controls
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id volchange volup
-bindsym XF86AudioLowerVolume exec --no-startup-id volchange voldown
-bindsym XF86AudioMute exec --no-startup-id volchange volmute
+#bindsym XF86AudioRaiseVolume exec --no-startup-id volchange volup
+#bindsym XF86AudioLowerVolume exec --no-startup-id volchange voldown
+#bindsym XF86AudioMute exec --no-startup-id volchange volmute
 
 
 #### APPEARANCE ####
 
 # font
-font pango:Dejavu Sans Mono 10
+#font pango:Dejavu Sans Mono 10
+font pango:Liberation Sans Mono 10
 
 # class                 border  bground text    indicator child_border
 client.focused          #000000 #222222 #FFF897 #3A3426   #191919

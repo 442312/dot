@@ -7,6 +7,7 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
+        markup = pango
         colors = true
         interval = 5
         color_good = "#FFF897"
@@ -14,17 +15,25 @@ general {
 		color_bad = "#FF1592"
 }
 
-order += "ipv6"
-order += "disk /"
+#order += "ipv6"
+order += "disk /home"
 order += "wireless _first_"
-order += "ethernet _first_"
+#order += "ethernet _first_"
 order += "battery all"
 order += "load"
+order += "volume master"
 order += "tztime local"
 
+volume master {
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+	format = "<span foreground='#FF1592'>  VOL:</span>%volume  "
+}
+
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
-        format_down = "W: down"
+        format_up = "NET: (%quality at %essid) %ip"
+        format_down = "  NET: down  "
 }
 
 ethernet _first_ {
@@ -34,17 +43,17 @@ ethernet _first_ {
 }
 
 battery all {
-        format = "%status %percentage %remaining"
+        format = "  %status: %percentage %remaining  "
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = ":: %Y-%m-%d :: %H:%M:%S :: "
 }
 
 load {
-        format = "%1min"
+        format = "<span foreground='#FFFF00'>=</span> %1min <span foreground='#FFFF00'>=</span>"
 }
 
-disk "/" {
-        format = "%avail"
+disk "/home" {
+        format = "  <span foreground='#FFFF00'>USED:</span> %used <span foreground='#FFFF00'>from</span> %total  "
 }
