@@ -52,14 +52,15 @@ sudo mkinitcpio -p linux
 
 #Todo
 
-pamac
-hardware clock localtime
-yay
+
+hardware clock
+date format
+
+i3
 jumpapp
 vim
 emacs
 freeplane freemind
 fn light
-power and performance settings
 suspend hibernate etc
 english for console and applications
