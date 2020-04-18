@@ -16,7 +16,7 @@ Background
 Foreground
  #000000
 Selection
- #0000aa
+ var1 #0000aa var2 #000080
 Icons main color
  #f7f794
 
@@ -59,6 +59,47 @@ Terminal colors VAR2
 *color13:  #6f0065
 *color14:  #000088
 *color15:  #6e3841
+
+Terminal colors VAR3
+Isotope based
+
+! special
+*.foreground:   #000000
+*.background:   #c3c7cb
+*.cursorColor:  #000000
+
+! black
+*.color0:       #000000
+*.color8:       #808080
+
+! red
+*.color1:       #ff0000
+*.color9:       #ff0000
+
+! green
+*.color2:       #27a706
+*.color10:      #27a706
+
+! yellow
+*.color3:       #ff0099
+*.color11:      #ff0099
+
+! blue
+*.color4:       #0066ff
+*.color12:      #0066ff
+
+! magenta
+*.color5:       #cc00ff
+*.color13:      #cc00ff
+
+! cyan
+*.color6:       #128294
+*.color14:      #128294
+
+! white
+*.color7:       #000000
+*.color15:      #ffffff
+
 
 ===============================================================
 ---------------------------------------------------------------

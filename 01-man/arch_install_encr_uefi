@@ -52,7 +52,7 @@ sudo mkinitcpio -p linux
 
 #Todo
 
-
+git
 hardware clock
 date format
 
@@ -62,5 +62,5 @@ vim
 emacs
 freeplane freemind
 fn light
-suspend hibernate etc
-english for console and applications
+keyboard layout
+

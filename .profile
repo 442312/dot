@@ -1,2 +1,2 @@
-PATH="$HOME/.local/bin:$PATH:/sbin"
+PATH="$HOME/.bin:$HOME/.local/bin:$PATH:/sbin"
 

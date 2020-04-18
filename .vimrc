@@ -26,6 +26,7 @@ syntax on
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'jceb/vim-orgmode' 
 
 call plug#end()
 

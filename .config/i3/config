@@ -5,13 +5,23 @@
 #### AUTOSTART APPLICATIONS ####
 
 # load autostart file
-exec --no-startup-id ~/.config/i3/autostart.sh
+#exec --no-startup-id ~/.config/i3/autostart.sh
 
 
 #### COMMON ####
 
 # modkey
 set $mod Mod4
+
+# configure border style <normal|1pixel|pixel xx|none|pixel>
+default_border pixel 1
+default_floating_border normal
+
+# set default applications
+set $terminal konsole
+set $browser firefox
+set $editor kate
+set $fm dolphin
 
 # floating modifier
 floating_modifier $mod
@@ -143,7 +153,7 @@ for_window [workspace=1] layout tabbed
 #### APPLICATIONS SHORTCUTS ####
 
 # print screen
-bindsym Print exec scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/dnl/'
+#bindsym Print exec scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/dnl/'
 
 # start dmenu (a program launcher)
 #bindsym KP_Delete exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Dejavu Sans Mono-10' -p 'dmenu'"
@@ -154,28 +164,31 @@ bindsym KP_Delete exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -
 bindsym $mod+d exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Liberation Sans Mono-10' -p 'dmenu'"
 
 # start terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec $terminal
 
 # start terminal
-bindsym KP_Enter exec urxvt
+bindsym KP_Enter exec $terminal
 
-# raise or run terminator
-bindsym KP_Insert exec jumpapp urxvt
+# raise or run terminal
+bindsym KP_Insert exec jumpapp $terminal
 
-# raise or run firefox
-bindsym KP_Begin exec jumpapp firefox
+# raise or run browser
+bindsym KP_Begin exec jumpapp $browser
+
+# raise or run file manager
+bindsym KP_End exec jumpapp $fm
 
 # raise or run thunar
-bindsym KP_End exec jumpapp -f thunar
+#bindsym KP_End exec jumpapp -f thunar
 
 # raise or run doublecommander
 bindsym KP_Next exec jumpapp doublecmd
 
-# raise or run thunar
-bindsym KP_Down exec jumpapp -t "ranger" urxvt -e ranger
+# raise or run ranger
+bindsym KP_Down exec jumpapp -t "ranger" $terminal -e ranger
 
-# raise or run geany
-bindsym KP_Right exec jumpapp geany
+# raise or run editor
+bindsym KP_Right exec jumpapp $editor
 
 # raise or run emacs
 bindsym KP_Left exec jumpapp emacs
@@ -184,9 +197,9 @@ bindsym KP_Left exec jumpapp emacs
 bindsym KP_Prior exec jumpapp -c "mpv" mpv-run
 
 # volume controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 #bindsym XF86AudioRaiseVolume exec --no-startup-id volchange volup
 #bindsym XF86AudioLowerVolume exec --no-startup-id volchange voldown
@@ -197,7 +210,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 
 # font
 #font pango:Dejavu Sans Mono 10
-font pango:Liberation Sans Mono 10
+font pango:Liberation Mono 10
 
 # class                 border  bground text    indicator child_border
 client.focused          #000000 #222222 #FFF897 #3A3426   #191919
@@ -222,3 +235,32 @@ bar {
     binding_mode       #FF1B48 #F6EB55 #6A0B1E
   }
 }
+
+#### PLASMA INTEGRATION ####
+
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+no_focus [class="plasmashell" window_type="notification"] 
+
+#### GAPS ####
+
+# Set inner/outer gaps
+gaps inner 14
+gaps outer -2
+
+# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
+# gaps inner|outer current|all set|plus|minus <px>
+# gaps inner all set 10
+# gaps outer all plus 5
+
+# Smart gaps (gaps used if only more than one container on the workspace)
+#smart_gaps on
