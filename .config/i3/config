@@ -5,7 +5,7 @@
 #### AUTOSTART APPLICATIONS ####
 
 # load autostart file
-#exec --no-startup-id ~/.config/i3/autostart.sh
+exec --no-startup-id ~/.config/i3/autostart.sh
 
 
 #### COMMON ####
@@ -14,14 +14,14 @@
 set $mod Mod4
 
 # configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
-default_floating_border normal
+#~ default_border pixel 1
+#~ default_floating_border normal
 
 # set default applications
-set $terminal konsole
+set $terminal urxvt
 set $browser firefox
-set $editor kate
-set $fm dolphin
+set $editor geany
+set $fm thunar
 
 # floating modifier
 floating_modifier $mod
@@ -153,7 +153,7 @@ for_window [workspace=1] layout tabbed
 #### APPLICATIONS SHORTCUTS ####
 
 # print screen
-#bindsym Print exec scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/dnl/'
+bindsym Print exec scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/dnl/'
 
 # start dmenu (a program launcher)
 #bindsym KP_Delete exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Dejavu Sans Mono-10' -p 'dmenu'"
@@ -176,10 +176,10 @@ bindsym KP_Insert exec jumpapp $terminal
 bindsym KP_Begin exec jumpapp $browser
 
 # raise or run file manager
-bindsym KP_End exec jumpapp $fm
+#bindsym KP_End exec jumpapp $fm
 
 # raise or run thunar
-#bindsym KP_End exec jumpapp -f thunar
+bindsym KP_End exec jumpapp -f thunar
 
 # raise or run doublecommander
 bindsym KP_Next exec jumpapp doublecmd
@@ -197,13 +197,13 @@ bindsym KP_Left exec jumpapp emacs
 bindsym KP_Prior exec jumpapp -c "mpv" mpv-run
 
 # volume controls
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-#bindsym XF86AudioRaiseVolume exec --no-startup-id volchange volup
-#bindsym XF86AudioLowerVolume exec --no-startup-id volchange voldown
-#bindsym XF86AudioMute exec --no-startup-id volchange volmute
+#~ bindsym XF86AudioRaiseVolume exec --no-startup-id volchange volup
+#~ bindsym XF86AudioLowerVolume exec --no-startup-id volchange voldown
+#~ bindsym XF86AudioMute exec --no-startup-id volchange volmute
 
 
 #### APPEARANCE ####
@@ -238,24 +238,24 @@ bar {
 
 #### PLASMA INTEGRATION ####
 
-for_window [title="Desktop — Plasma"] kill; floating enable; border none
-for_window [class="plasmashell"] floating enable;
-for_window [class="Plasma"] floating enable; border none
-for_window [title="plasma-desktop"] floating enable; border none
-for_window [title="win7"] floating enable; border none
-for_window [class="krunner"] floating enable; border none
-for_window [class="Kmix"] floating enable; border none
-for_window [class="Klipper"] floating enable; border none
-for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="(?i)*nextcloud*"] floating disable
-for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
-no_focus [class="plasmashell" window_type="notification"] 
+#~ for_window [title="Desktop — Plasma"] kill; floating enable; border none
+#~ for_window [class="plasmashell"] floating enable;
+#~ for_window [class="Plasma"] floating enable; border none
+#~ for_window [title="plasma-desktop"] floating enable; border none
+#~ for_window [title="win7"] floating enable; border none
+#~ for_window [class="krunner"] floating enable; border none
+#~ for_window [class="Kmix"] floating enable; border none
+#~ for_window [class="Klipper"] floating enable; border none
+#~ for_window [class="Plasmoidviewer"] floating enable; border none
+#~ for_window [class="(?i)*nextcloud*"] floating disable
+#~ for_window [class="plasmashell" window_type="notification"] floating enable, border none, move right 700px, move down 450px
+#~ no_focus [class="plasmashell" window_type="notification"] 
 
 #### GAPS ####
 
 # Set inner/outer gaps
-gaps inner 14
-gaps outer -2
+#~ gaps inner 14
+#~ gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
