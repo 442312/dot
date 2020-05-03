@@ -210,7 +210,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 
 # font
 #font pango:Dejavu Sans Mono 10
-font pango:Liberation Mono 10
+#font pango:Liberation Mono 10
+font pango:Liberation Sans 10
+
 
 # class                 border  bground text    indicator child_border
 client.focused          #000000 #222222 #FFF897 #3A3426   #191919

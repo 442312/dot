@@ -1,0 +1,12 @@
+#Enable tap-to-click on Linux via libinput config
+sudo mkdir -p /etc/X11/xorg.conf.d
+sudo geany /etc/X11/xorg.conf.d/40-libinput.conf
+#Paste
+Section "InputClass"
+        Identifier "libinput touchpad catchall"
+        MatchIsTouchpad "on"
+        MatchDevicePath "/dev/input/event*"
+        Driver "libinput"
+        Option "Tapping" "on"
+EndSection
+#Reboot

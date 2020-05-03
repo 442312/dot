@@ -50,6 +50,7 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 URxvt.scrollBar: false
 URxvt.internalBorder: 20
 
+
 ! special
 *.foreground:   #dcdcdc
 *.background:   #3f3f3f
@@ -86,6 +87,6 @@ URxvt.internalBorder: 20
 ! white
 *.color7:       #dcdccc
 *.color15:      #dcdccc
-
+ 
 
 

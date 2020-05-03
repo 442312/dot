@@ -7,6 +7,7 @@
 ln -sf ~/dot/.bin ~/.bin
 ln -sf ~/dot/.local/share/fonts ~/.local/share/fonts
 ln -sf ~/dot/.config/compton.conf ~/.config/compton.conf
+ln -sf ~/dot/.config/colors ~/.config/colors
 ln -sf ~/dot/.config/dunst/dunstrc ~/.config/dunst/dunstrc
 ln -sf ~/dot/.config/geany ~/.config/geany
 ln -sf ~/dot/.config/i3 ~/.config/i3
