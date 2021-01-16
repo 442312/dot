@@ -1,2 +1,5 @@
 ### Command line options to launch and manange virtual machines.
-<addr>sudo apt install qemu-kvm
+```
+sudo apt install qemu-kvm
+
+```
