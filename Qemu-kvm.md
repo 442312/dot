@@ -1,7 +1,7 @@
 ### Command line options to create and launch virtual machines with pure qemu-kvm
 Made on Debian 10
 
-##### All commands list. Explanation will be later
+##### All commands list. Explanation is below
 ```
 sudo apt install qemu-kvm
 sudo qemu-img create -f qcow2 /path/to/image.qcow2 20G
