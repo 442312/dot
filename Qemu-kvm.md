@@ -74,7 +74,7 @@ sudo qemu-system-x86_64  -net nic -net user,smb=/path/to/shared/folder -smp 2 -c
 ```
 Options `-net nic -net user,smb=/path/to/shared/folder` are used to share a folder with guest operating system.  
 On guest we shell use the following commands to mount thr folder from host (guest is also debian).  
-to instal cifs mount dependensies:
+To instal cifs mount dependensies:
 ```
 sudo apt install cifs-utils
 ```
