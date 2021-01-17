@@ -8,6 +8,6 @@ sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils vir
 
 ##### To run virt-manager without root privilegues add our user to apropriate groups
 ```
-sudo adduser k01 libvirt libvirt-qemu
+sudo adduser our_user libvirt libvirt-qemu
 ```
 Restart system to apply changes
