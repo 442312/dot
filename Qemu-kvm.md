@@ -19,3 +19,14 @@ Example command:
 ```
 qemu-img create -f raw /path/to/image.img 10G
 ```
+##### Next boot from iso to install guest operating system
+```
+sudo qemu-system-x86_64 -boot d -cdrom /path/to/iso.iso -smp 2 -cpu host -enable-kvm -m 2048 -drive format=qcow2,file=/path/to/image.qcow2
+```
+Options here are:
+`-boot d -cdrom /path/to/iso.iso` to boot from specifyed iso file
+`-smp 2`to use 2 CPU cores
+`-cpu host`to emulate the host processor
+`-enable-kvm`to use kvm hypervisor
+`-m 2048`to set vm RAM to 2048 Mb
+`-drive format=qcow2,file=/path/to/image.qcow2` to use previously created disk image file 
