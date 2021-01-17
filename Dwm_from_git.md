@@ -1,6 +1,16 @@
 ### Download, compile and launch dwm from git source
 Made on Debian 10
 
+##### All commands list. Explanation is below
+```
+sudo apt install xorg git build-essential suckless-tools libxft-dev libxinerama-dev libx11-dev
+git clone https://git.suckless.org/dwm
+cd dwm
+make && sudo make install
+cd st
+make && sudo make install
+```
+
 ##### First install dependecies
 ```
 sudo apt install xorg git build-essential suckless-tools libxft-dev libxinerama-dev libx11-dev
