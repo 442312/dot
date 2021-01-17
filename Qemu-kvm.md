@@ -9,12 +9,12 @@ sudo apt install qemu-kvm
 sudo qemu-img create -f qcow2 /path/to/image.qcow2 20G
 ```
 This will create dynamicaly growing qcow2 disk image with maximum size of 20 gygabytes.
-To create preallocated disk image file use options ```-o preallocation=full``` or ```-o preallocation=falloc```. Full preallocation will overwrite free space with zeros, falloc only preallocates space. Both of them gives increased perfomance for virtual machine. Full preallocation gives it little more, but takes much more time depending on image size.
+To create preallocated disk image file use options ```-o preallocation=full``` or ```-o preallocation=falloc```. Full preallocation will overwrite free space with zeros, falloc only preallocates space. Both of them gives increased perfomance for virtual machine. Full preallocation gives it little more, but takes much more time depending on image size.  
 Example for falloc preallocation:
 ```
 sudo qemu-img create -f qcow2 -o preallocation=falloc /path/to/image.qcow2 20G
 ```
-To give virtual machine maximum performance we can use raw disk image format. Disadvantages of raw format are the inability to use incremental backup solutions, compression and encryption of the disk image. Raw images also doesn't support preallocation.
+To give virtual machine maximum performance we can use raw disk image format. Disadvantages of raw format are the inability to use incremental backup solutions, compression and encryption of the disk image. Raw images also doesn't support preallocation.  
 Example command:
 ```
 qemu-img create -f raw /path/to/image.img 10G
@@ -30,3 +30,8 @@ Options here are:
 `-enable-kvm`to use kvm hypervisor  
 `-m 2048`to set vm RAM to 2048 Mb  
 `-drive format=qcow2,file=/path/to/image.qcow2` to use previously created disk image file  
+##### After installation is complete, boot the new virtual machine with command
+```
+sudo qemu-system-x86_64 -smp 2 -cpu host -enable-kvm -m 2048 -drive format=qcow2,file=/path/to/image.qcow2
+```
+This is the same command witout boot and cdrom options.
