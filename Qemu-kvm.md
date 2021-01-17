@@ -1,4 +1,4 @@
-### Command line options to launch and manange virtual machines with qemu
+### Command line options to create and launch virtual machines with pure qemu-kvm
 Made on Debian 10
 
 ##### First install qemu
