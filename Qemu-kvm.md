@@ -1,6 +1,21 @@
 ### Command line options to create and launch virtual machines with pure qemu-kvm
 Made on Debian 10
 
+##### All commands list. Explanation will be later
+```
+sudo apt install qemu-kvm
+sudo qemu-img create -f qcow2 /path/to/image.qcow2 20G
+sudo qemu-img create -f qcow2 -o preallocation=falloc /path/to/image.qcow2 20G
+sudo qemu-img create -f raw /path/to/image.img 10G
+sudo qemu-img create -f qcow2 -b /path/to/image.qcow2 /path/to/image-snapshot.qcow2
+sudo qemu-system-x86_64 -boot d -cdrom /path/to/iso.iso -smp 2 -cpu host -enable-kvm -m 2048 -drive format=qcow2,file=/path/to/image.qcow2
+sudo qemu-system-x86_64 -smp 2 -cpu host -enable-kvm -m 2048 -drive format=qcow2,file=/path/to/image.qcow2
+sudo qemu-system-x86_64  -net nic -net user,smb=/path/to/shared/folder -smp 2 -cpu host -enable-kvm -m 2048 -drive format=qcow2,file=/path/to/image.qcow2
+sudo apt install cifs-utils
+sudo mount -t cifs //10.0.2.4/qemu/ /mnt/`
+sudo umount -a -t cifs -l
+```
+
 ##### First install qemu
 ```
 sudo apt install qemu-kvm
