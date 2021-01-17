@@ -1,4 +1,5 @@
 ### Command line options to launch and manange virtual machines with qemu
+Made on Debian 10
 
 ##### First install qemu
 ```
@@ -35,3 +36,23 @@ Options here are:
 sudo qemu-system-x86_64 -smp 2 -cpu host -enable-kvm -m 2048 -drive format=qcow2,file=/path/to/image.qcow2
 ```
 This is the same command witout boot and cdrom options.
+##### Next we may wish to have acsess to some host folders
+In this case launch virtual machine with the next command
+```
+sudo qemu-system-x86_64  -net nic -net user,smb=/path/to/shared/folder -smp 2 -cpu host -enable-kvm -m 2048 -drive format=qcow2,file=/path/to/image.qcow2
+```
+Options `-net nic -net user,smb=/path/to/shared/folder` are used to share a folder with guest operating system.  
+On guest we shell use the following commands to mount thr folder from host (guest is also debian)
+```
+sudo apt install cifs-utils
+```
+to instal cifs mount dependensies
+```
+sudo mount -t cifs //10.0.2.4/qemu/ /mnt/
+```
+to mount the host shared folder to /mnt
+```
+sudo umount -a -t cifs -l
+```
+to unmount shared folder.
+
