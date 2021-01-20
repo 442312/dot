@@ -91,6 +91,7 @@ sudo mount -t cifs -o user=HOSTUSER,uid=1000,gid=1000 //HOSTNAME.local/HOSTUSER 
 ##### To make a permanent onboot mount add this to fstab
 ```
 sudo vim /etc/fstab
+//HOSTNAME.local/HOSTUSER    /MOUNTPOINT    cifs   credentials=/home/GUESTUSER/.smbcredentials,uid=1000,gid=1000   0 0
 ```
 Now we have read and write access to our host home folder
 
