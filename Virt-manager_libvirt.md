@@ -95,7 +95,7 @@ sudo vim /etc/fstab
 ```
 Now we have read and write access to our host home folder
 
-### How to set needed sreen resolution on virtual machine startup
+### How to set needed screen resolution on virtual machine startup
 Made on Debian openbox (#!++)
 
 ```
