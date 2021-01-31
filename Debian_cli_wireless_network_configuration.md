@@ -22,7 +22,8 @@ iface wlp2s0 inet dhcp
 
 #### Last restart networking service
 
-``` sudo systemctl restart networking.service
+```
+sudo systemctl restart networking.service
 ```
 
 Now we're connected to ESSID wireless network
