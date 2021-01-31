@@ -5,14 +5,14 @@ Made on Debian 10
 ```
 lsblk
 ```
-Let's say it's main partition path is /dev/sdc1.
+Let's say it's main partition path is /dev/sdc1.  
 
 #### Next let's encrypt it (ALL EXISTING DATA WILL BE LOST!!)
 
 ```
 sudo cryptsetup --cipher aes-xts-plain --key-size 512 --hash sha512 -v luksFormat /dev/sdc1
 ```
-You will be asked to create passphrase and repeat it.
+You will be asked to create passphrase and repeat it.  
 
 
 #### Now let's open it and create filesystem
@@ -21,7 +21,8 @@ You will be asked to create passphrase and repeat it.
 sudo cryptsetup -v luksOpen /dev/sdc1  usbdisk
 sudo mkfs -t ext4 -L usbdisk /dev/mapper/usbdisk
 ```
-You will be asked to type our drive's passphrase after the first command.
+You will be asked to type our drive's passphrase after the first command.  
+
 
 #### Now let's create key file to open our drive without passphrase
 
@@ -29,7 +30,8 @@ You will be asked to type our drive's passphrase after the first command.
 mkdir /home/user/.luks-keys
 dd if=/dev/urandom of=.luks-keys/usbdisk bs=512 count=8
 ```
-Here we created a folder for key files and a key file in it for our drive.
+Here we created a folder for key files and a key file in it for our drive.  
+
 
 #### Next we shall make our encrypted partition remember this key to open partition whithout a passphrase
 
@@ -43,7 +45,7 @@ This will make unnessecary to locate our drive path each time we connect it.
 ```
 sudo cryptsetup luksDump /dev/sdc1 | grep "UUID"
 ```
-Let's say our partition's UUID=5eebea70-9a89-47a8-ad21-7da361b7df00.
+Let's say our partition's UUID=5eebea70-9a89-47a8-ad21-7da361b7df00.  
 
 #### Now let's create a mountpoint for our encrypted partition
 
@@ -65,9 +67,9 @@ sudo cryptsetup -v luksOpen  UUID=5eebea70-9a89-47a8-ad21-7da361b7df00 usbdisk -
 
 And last mount it to previously created mount point
 ```
-sudo mount /dev/mapper/usbdisk /home/k01/.mnt/usbdisk
+sudo mount /dev/mapper/usbdisk /home/user/.mnt/usbdisk
 ```
-Now our partition is mounted under /home/user/.mnt/usbdisk without asking for a passphrase.
+Now our partition is mounted under /home/user/.mnt/usbdisk without asking for a passphrase.  
 
 
 #### Tune permissions
@@ -114,7 +116,7 @@ sudo cryptsetup -v luksClose usbdisk
 Now when you insert your disk and type in console:
 ```
 mountusbdisk
-`
+```
 It will open and mount our encrypted partition to /home/user/.mnt/usbdisk only asking for a root password
 
 To unmount it just type
