@@ -14,3 +14,15 @@ ip a
 ```
 nano /etc/network/interfaces
 ----------------------------------------
+allow-hotplug wlp2s0
+iface wlp2s0 inet dhcp
+        wpa-ssid ESSID
+        wpa-psk PASSWORD
+```
+
+#### Last restart networking service
+
+``` sudo systemctl restart networking.service
+```
+
+Now we're connected to ESSID wireless network
