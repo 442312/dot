@@ -50,5 +50,4 @@ sudo apt install xtightvncviewer
 
 To connect to remote machine launch xtightvncviewer with the method of your choice.
 In the window that should appear type server's IP and PASSWORD when prompted.
-```
 
