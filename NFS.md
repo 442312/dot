@@ -13,7 +13,7 @@ sudo nano /etc/exports
 
 /nfs/share/path  NFS.CLIENT.IP(rw,sync)
 ```
-You can specify multiple clinents ip's with different options (like NFS.CLIENT1.IP(ro,sync) NFS.CLIENT@.IP(rw,sync) ) or use expression like 192.168.1.0/24 to share to all clients in current subnet.
+You can specify multiple clinents ip's with different options (like NFS.CLIENT1.IP(ro,sync) NFS.CLIENT2.IP(rw,sync) ) or use expression like 192.168.1.0/24 to share to all clients in current subnet.
 
 
 #### Next restart nfs service
