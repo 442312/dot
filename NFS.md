@@ -36,3 +36,10 @@ mount point should be already created
 ```
 sudo umount /mount/point
 ```
+
+#### If the server goes unreachable
+And nfs-share stays mounted there is no way to unmount it common way. In such a case use
+````
+sudo unmount -f -l /mount/point
+````
+Where -f option means force unmount and -l option means lazy unmount
