@@ -14,5 +14,5 @@ Section "Device"
 	  Identifier "Intel Graphics"
 	  Driver "intel"
 	  Option "TearFree" "true"	
-  EndSection
+EndSection
 ```
