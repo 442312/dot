@@ -1,0 +1,68 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        markup = pango
+        colors = true
+        interval = 5
+        color_good = "#FFF897"
+		color_degraded = "#FFFF00"
+		color_bad = "#FF1592"
+}
+order += "path_exists 040k01"
+#order += "ipv6"
+order += "disk /home"
+order += "wireless _first_"
+#order += "ethernet _first_"
+order += "battery all"
+order += "load"
+order += "volume master"
+order += "tztime local"
+
+path_exists 040k01 {
+	    path = "/home/k01/.040k01/.stfolder"
+        format = "%title: %status  "
+        color_bad      = "#cccccc"
+        color_degraded = "#d65d0e"
+        color_good     = "#FF1592"
+}
+
+
+volume master {
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+	format = "<span foreground='#FF1592'>  VOL:</span>%volume  "
+}
+
+wireless _first_ {
+        format_up = "  NET: (%quality at %essid) %ip  "
+        format_down = "  NET: down  "
+}
+
+ethernet _first_ {
+        # if you use %speed, i3status requires root privileges
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+battery all {
+        format = "  %status: %percentage %remaining  "
+}
+
+tztime local {
+        format = ":: %Y-%m-%d :: %H:%M:%S :: "
+}
+
+load {
+        format = "  <span foreground='#FFFF00'>=</span> %1min <span foreground='#FFFF00'>=</span>  "
+}
+
+disk "/home" {
+        format = " <span foreground='#FFFF00'>USED:</span> %used <span foreground='#FFFF00'>from</span> %total "
+}

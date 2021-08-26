@@ -1,0 +1,244 @@
+# i3 config file (v4)
+# by k01
+# created 2020-02-25
+
+#### AUTOSTART APPLICATIONS ####
+
+# load autostart file
+exec --no-startup-id ~/.config/i3/autostart.sh
+
+
+#### COMMON ####
+
+# modkey
+set $mod Mod4
+
+# configure border style <normal|1pixel|pixel xx|none|pixel>
+#~ default_border pixel 1
+#~ default_floating_border normal
+
+# set default applications
+set $terminal urxvt
+set $browser firefox
+set $editor geany
+set $fm thunar
+
+# floating modifier
+floating_modifier $mod
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+
+#### WINDOW ACTIONS ####
+
+# kill window
+bindsym $mod+q kill
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym KP_Up focus left
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym KP_Home focus left
+bindsym KP_Prior focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# resize window
+bindsym $mod+Mod1+h resize shrink width 3 px or 3 ppt
+bindsym $mod+Mod1+j resize grow height 3 px or 3 ppt
+bindsym $mod+Mod1+k resize shrink height 3 px or 3 ppt
+bindsym $mod+Mod1+l resize grow width 3 px or 3 ppt
+
+bindsym $mod+Mod1+Left resize shrink width 3 px or 3 ppt
+bindsym $mod+Mod1+Down resize grow height 3 px or 3 ppt
+bindsym $mod+Mod1+Up resize shrink height 3 px or 3 ppt
+bindsym $mod+Mod1+Right resize grow width 3 px or 3 ppt
+
+
+#### LAYOUTS ####
+
+# split in horizontal orientation
+bindsym $mod+g split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (tabbed, toggle split)
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# sticky window toggle
+bindsym $mod+s sticky toggle
+
+# focus the parent container
+bindsym $mod+p focus parent
+
+# focus the child container
+bindsym $mod+c focus child
+
+
+#### WORKSPACES ####
+
+# variables
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+bindsym KP_Subtract workspace next
+bindsym KP_Add workspace prev
+
+
+#### APPLICATIONS SHORTCUTS ####
+
+# print screen
+bindsym Print exec scrot '%Y-%m-%d--%s_$wx$h_scrot.png' -e 'mv $f ~/dnl/'
+
+# start dmenu (a program launcher)
+#bindsym KP_Delete exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Dejavu Sans Mono-10' -p 'dmenu'"
+#bindsym KP_Delete exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Liberation Sans Mono-10' -p 'dmenu'"
+
+# start dmenu (a program launcher)
+#bindsym $mod+d exec "dmenu_run -b -nf '#BBBBBB' -nb '#353535' -sb '#E1CE52' -sf '#000000' -fn 'Dejavu Sans Mono-10' -p 'dmenu'"
+bindsym $mod+d exec "dmenu_run -b -nf '#BBBBBB' -nb '#222222' -sb '#E1CE52' -sf '#444444' -fn 'Liberation Mono 10' -p 'dmenu'"
+
+
+# volume controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+#~ bindsym XF86AudioRaiseVolume exec --no-startup-id volchange volup
+#~ bindsym XF86AudioLowerVolume exec --no-startup-id volchange voldown
+#~ bindsym XF86AudioMute exec --no-startup-id volchange volmute
+
+
+#### APPEARANCE ####
+
+# font
+#font pango:Dejavu Sans Mono 10
+#font pango:Liberation Mono 10
+#font pango:Liberation Sans 10
+font pango: Terminus 10
+
+
+# class                 border  bground text    indicator child_border
+client.focused          #000000 #111111 #FFF897 #3A3426   #191919
+client.focused_inactive #111111 #000000 #888888 #484E50   #292929
+client.unfocused        #111111 #000000 #888888 #292D2E   #292929
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+client.background       #FFFFFF
+
+bar {
+  status_command i3status
+  colors {
+    background #111111
+    statusline #cccccc
+    separator  #666666
+
+    focused_workspace  #938535 #000000 #FFE95D
+    active_workspace   #959595 #000000 #FFFFFF
+    inactive_workspace #3C3C3C #000000 #9A9A9A
+    urgent_workspace   #FF9686 #900000 #FFFFFF
+    binding_mode       #FF1B48 #F6EB55 #6A0B1E
+  }
+}
+
+# Exit mode
+bindsym $mod+Shift+q mode "$mode_exit"
+set $mode_exit (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+mode "$mode_exit" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit exit mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+### i3-gaps stuff ###
+
+# Necessary for i3-gaps to work properly (pixel can be any value)
+#for_window [class="^.*"] border pixel 3
+
+# Smart Gaps
+#smart_gaps on
+
+# Smart Borders
+#smart_borders on
+
+# Set inner/outer gaps
+#gaps inner 10
+#gaps outer 2
+

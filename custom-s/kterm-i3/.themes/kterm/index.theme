@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=kterm
+Comment=Simple dark theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+Name=kterm
+GtkTheme=kterm
+IconTheme=kterm
+MetacityTheme=kterm

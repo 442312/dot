@@ -1,0 +1,11 @@
+#!/bin/bash
+lxpolkit &
+xset r rate 250 25 &
+xset b off &
+hsetroot -solid "#000000" &
+sxhkd &
+xfce4-power-manager &
+thunar --daemon &
+xss-lock -l blurlock &
+setxkbmap -layout 'us,ru' -option 'grp:caps_toggle,grp_led:caps' &
+#nitrogen --restore &

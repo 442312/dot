@@ -1,0 +1,54 @@
+KP_Delete
+	~/.config/dmenu/dmenu-bind.sh
+
+KP_Enter
+	urxvt
+
+KP_Insert
+	jumpapp urxvt
+
+KP_Begin
+	jumpapp firefox
+
+KP_End
+	jumpapp -f thunar
+
+#KP_End
+#	jumpapp -f dolphin
+
+KP_Next
+	jumpapp -f doublecmd
+
+KP_Down
+	jumpapp -t "ranger" urxvt -e ranger
+
+KP_Right 
+	jumpapp geany
+
+#KP_Right 
+#	jumpapp kate
+
+KP_Left
+	jumpapp emacs
+
+KP_Up
+	jumpapp -c "mpv" mpv-run
+
+#XF86AudioRaiseVolume
+#	volchange volup
+	
+#XF86AudioLowerVolume
+#	volchange voldown
+	
+#XF86AudioMute
+#	volchange volmute
+	
+#super + bracketright
+#	volchange volup
+
+#super + brackeleft
+#	volchange voldown
+	
+super + Escape
+	xkill
+

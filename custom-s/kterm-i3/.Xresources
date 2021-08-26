@@ -1,0 +1,56 @@
+! font settings --------------------------------------------------------------
+
+Xft.autohint: true
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.dpi: 96
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+! URxvt ---------------------------------------------------------------
+
+!URxvt*font: xft:DejaVu Sans Mono:style=Book:pixelsize=14:antialias=true:hinting=true:hintsyle=hintfull
+!URxvt*font: xft:Liberation Mono:pixelsize=13:antialias=true:hinting=true:hintsyle=hintfull
+!URxvt*font: xft:SF Mono:pixelsize=12:antialias=true:hinting=true:hintsyle=hintfull
+URxvt.font: xft:terminus:pixelsize=14:antialias=false
+URxvt.boldFont: xft:terminus:bold:pixelsize=14:antialias=false
+
+URxvt*letterSpace: 0
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.scrollBar: false
+URxvt.internalBorder: 20
+URxvt.borderColor: #1a1c1e
+URxvt.cursorColor: #395573
+
+! colors ---------------------------------------------------------------
+
+*background:  #1a1c1e
+*foreground:  #cccccc
+!black
+*color0:  #333333
+*color8:  #3D3D3D
+!red
+*color1:  #8C4665
+*color9:  #BF4D80
+!green
+*color2:  #287373
+*color10: #53A6A6
+!yellow
+*color3:  #7C7C99
+*color11: #9E9ECB
+!blue
+*color4:  #395573
+*color12: #477AB3
+!magenta
+*color5:  #5E468C
+*color13: #7E62B3
+!cyan
+*color6:  #31658C
+*color14: #6096BF
+!white
+*color7:  #899CA1
+*color15: #C0C0C0
