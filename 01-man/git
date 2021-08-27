@@ -2,37 +2,59 @@ sudo apt install -y git
 
 ###############################################################################
 #
-# 1.This will set your global credentials
-# -replace 10411@mail.ru with your git user email
-# -replace 1101947 with your git user name
+# 1.If you don't have an existing ssh key or whant to use a new one,
+# generate new ssh key. After enetring command you will be asked for file name
+# - Enter file in which to save the key (/home/user/.ssh/id_rsa):
+# Enter the meaning name or leave the default one.
+# Next you will be asked for a passphrase
+# - Enter passphrase (empty for no passphrase):
+# Using passphrase is more secure, but breakes usability and not nessecary.
+# Official github instructions for generating ssh keys are here:
+# https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 #
 ###############################################################################
 
-git config --global user.email "1768438@gmail.com" 
-git config --global user.name "442312"
+ssh-keygen -t rsa
 
-##############################################################################
+###############################################################################
 #
-# 2.This will set storing your credentials for 18000 seconds
+# 2.Set github ssh autorization using ssh key.
+# Open ~/.ssh/id_rsa.pub in text editor or use cat command
+# and copy it's content to clipboard.
+# Login on github.com and go to your profile settings
+# Settings --> SSH ang GPG keys --> New SSH key
+# Paste your key from clipboard. Confirm your account password.
+# Official github instructions for ssh autorization are here:
+# https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 #
-##############################################################################
+###############################################################################
+#
+# 3.Test github ssh autorization
+#
+###############################################################################
 
-git config --global credential.helper cache
-git config --global credential.helper 'cache --timeout=18000'
+ssh -T git@github.com
 
-##############################################################################
+###############################################################################
 #
-# 3.This will set the default push mode             
-# - only one line should be uncommented!
+# 4.Clone repository
 #
-##############################################################################
+###############################################################################
 
-# git config --global push.default matching
-git config --global push.default simple
+git clone git@github.com/user/repository.git
+
+###############################################################################
+#
+# 5.This will set your global credentials
+#
+###############################################################################
+
+git config --global user.email "$user@mail.com"
+git config --global user.name "$user"
 
 ##############################################################################
 #             
-# 4. Git basic usage 
+# 6. Git basic usage
 #
 ##############################################################################
 
