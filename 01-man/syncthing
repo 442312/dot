@@ -1,7 +1,9 @@
 Syncthing
 
 -Install and enable syncthing as a system service
-curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+sudo apt install gnupg2 curl ca-certificates lsb-release software-properties-common
+curl -s https://syncthing.net/release-key.txt | gpg --dearmor  > syncthing.gpg
+sudo install -o root -g root -m 644 syncthing.gpg /etc/apt/trusted.gpg.d/
 echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
 sudo apt update
 sudo apt install syncthing
