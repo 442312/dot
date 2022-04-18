@@ -42,9 +42,13 @@ CONSOLEFONT="cyr-sun16"
 vim /etc/mkinitcpio.conf
 -Add HOOKs keyboard keymap consolefont
 -To make it look like this
-HOOKS=(base udev autodetect modconf block encrypt lvm2 filesystems keyboard keymap consolefont fsck)
+HOOKS=(base udev autodetect modconf block encrypt lvm2 resume filesystems keyboard keymap consolefont fsck)
 
--Save Close Reboot
+-Save Close
+
+mkinitcpio -p linux
+
+-Reboot
 
 
 
