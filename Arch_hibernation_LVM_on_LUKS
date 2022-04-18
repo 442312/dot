@@ -1,0 +1,35 @@
+
+vim /etc/mkinitcpio.conf
+-Add HOOKs resume
+-To make it look like this
+HOOKS=(base udev autodetect modconf block encrypt lvm2 resume filesystems keyboard keymap consolefont fsck)
+
+-Save Close
+
+mkinitcpio -p linux
+
+vim /etc/default/grub
+
+-Edit the line GRUB_CMDLINE_LINUX to GRUB_CMDLINE_LINUX="cryptdevice=/dev/sdb3:luks:allow-discards resume=/dev/mapper/vg0-swap"
+
+-Save Close
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+-Reboot
+
+-To make hybrid sleep as default action when hibernating, do the following
+
+vim /etc/systemd/sleep.conf
+
+-Paste
+
+[Sleep]
+# suspend=hybrid-sleep
+SuspendMode=suspend
+SuspendState=disk
+# hibernate=hybrid-sleep
+HibernateMode=suspend
+HibernateState=disk
+
+-Save Colse Reboot
