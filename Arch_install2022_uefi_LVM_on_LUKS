@@ -1,0 +1,88 @@
+Instructions to install Arch on UEFI system using encryption (LVM on LUKS) with swap partition and hibernation support
+
+-Create installation USB drive
+dd bs=4M if=path/to/archlinux-version-x86_64.iso of=/dev/sdx conv=fsync oflag=direct status=progress
+-Boot
+-Test internet connection
+ping -c4 www.ya.ru
+-Connect wifi
+iwctl
+device list
+station device scan
+station device get-networks
+station device connect SSID
+exit
+-Test internet connection
+ping -c4 www.ya.ru
+-Create partitions
+cfdisk /dev/sdx
+-1 /dev/sdx1 300M EFI type for efi
+-2 /dev/sdx2 300M Linux filesystem type for boot
+-3 /dev/sdx3 rest space Linux filesystem type for LUKS
+-Write Quit
+-Create LUKS partition
+cryptsetup luksFormat /dev/sdx3
+cryptsetup luksOpen /dev/sdx3 sdx3crypt
+-Create LVM volumes
+pvcreate /dev/mapper/sdx3crypt
+vgcreate vg0 /dev/mapper/sdx3crypt
+lvcreate --size 8G vg0 --name swap
+lvcreate -l +100%FREE vg0 --name root
+-Create filesystems
+mkfs.fat -F32 /dev/sdx1
+mkfs.ext2 /dev/sdx2
+mkfs.ext4 /dev/mapper/vg0-root
+mkswap /dev/mapper/vg0-swap
+-Mount partitions
+mount /dev/mapper/vg0-root /mnt
+swapon /dev/mapper/vg0-swap
+mkdir /mnt/boot
+mount /dev/sdx2 /mnt/boot
+mkdir /mnt/boot/efi
+mount /dev/sdx1 /mnt/boot/efi
+-Rank mirrors
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+reflector --age 12 --country Russia,Belarus --sort rate --save /etc/pacman.d/mirrorlist
+-Install the system 
+pacstrap /mnt base base-devel linux linux-firmware net-tools networkmanager vim
+-Generate fstab
+genfstab -pU /mnt >> /mnt/etc/fstab
+-Chroot
+arch-chroot /mnt
+-Some settings
+echo MYHOSTNAME > /etc/hostname
+ln -s /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+hwclock --systohc --utc
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
+vim /etc/locale.gen
+-Uncomment
+en_US.UTF-8
+ru_RU.UTF-8
+-Save Close
+-Generate locale
+locale-gen
+-Set password for root
+passwd
+- Configure mkinitcpio with modules needed for the initrd image
+vim /etc/mkinitcpio.conf
+-Add 'ext4' to MODULES
+-Add 'encrypt', 'lvm2' and ‘resume’ ’to HOOKS before filesystems
+-To make it look like this
+HOOKS=(base udev autodetect modconf block encrypt lvm2 resume filesystems keyboard keymap consolefont fsck)
+-Save Close
+-Regenerate initrd image
+mkinitcpio -p linux
+-Setup grub
+pacman -S grub efibootmgr
+grub-install --efi--directory=/efi
+vim /etc/default/grub 
+-Edit the line GRUB_CMDLINE_LINUX to GRUB_CMDLINE_LINUX="cryptdevice=/dev/sda3:luks:allow-discards resume=/dev/mapper/vg0-swap" 
+-Save Close
+grub-mkconfig -o /boot/grub/grub.cfg
+exit
+reboot
+
+
+
+
+
