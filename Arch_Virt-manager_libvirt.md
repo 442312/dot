@@ -114,7 +114,7 @@ sudo systemctl restart libvirtd.service
 ```
 
 ### How to share host home folder to guest with rw permissions
-Made on Debian 10 host and guest
+Made on Archlinux host and Debian 10  guest
 
 #### ON HOST
 
@@ -141,29 +141,7 @@ sudo vim /etc/samba/smb.conf
    directory mask = 0750
    valid users = $USER
 
-##### Next enshure samba demon is running
 ```
-sudo systemctl status smbd.service
-```
-
-##### Otherwise start and enable it
-```
-sudo systemctl start smbd.service
-sudo systemctl enable smbd.service
-```
-
-##### Edit samba config to make home folder share writable for your user
-```
-sudo vim /etc/samba/smb.conf
-[homes]
-   comment = Home Directories
-   browseable = no
-   read only = no
-   create mask = 0750
-   directory mask = 0750
-   valid users = HOSTUSER
-```
-
 
 ##### Enable and start services
 ```
