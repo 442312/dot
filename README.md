@@ -1,3 +1,6 @@
+## Plans
+2024-07-30 This repo will be emtied by transferring files to another location.
+
 ### Ins folder 
 01-man folder contains different Linux recipies and incrtuctions.
 
