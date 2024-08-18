@@ -1,4 +1,4 @@
-Instructions to install Arch on UEFI system using encryption (LVM on LUKS) with swap partition and hibernation support
+Instructions to install Arch on UEFI system using encryption (LUKS)  with btrfs subvolumes without swap partition and hibernation support
 
 -Create installation USB drive
 dd bs=4M if=path/to/archlinux-version-x86_64.iso of=/dev/sdx conv=fsync oflag=direct status=progress
@@ -23,23 +23,26 @@ cfdisk /dev/sdx
 -Create LUKS partition
 cryptsetup luksFormat /dev/sdx3
 cryptsetup luksOpen /dev/sdx3 sdx3crypt
--Create LVM volumes
-pvcreate /dev/mapper/sdx3crypt
-vgcreate vg0 /dev/mapper/sdx3crypt
-lvcreate --size 8G vg0 --name swap
-lvcreate -l +100%FREE vg0 --name root
 -Create filesystems
 mkfs.fat -F32 /dev/sdx1
 mkfs.ext4 /dev/sdx2
-mkfs.ext4 /dev/mapper/vg0-root
-mkswap /dev/mapper/vg0-swap
+mkfs.btrfs /dev/mapper/sdx3crypt
+-Create btrfs subvolumes
+mount /dev/mapper/sdx3crypt /mnt
+btrfs su cr /mnt/@
+btrfs su cr /mnt/@home
+btrfs su cr /mnt/@snapshots
+umount /mnt
 -Mount partitions
-mount /dev/mapper/vg0-root /mnt
-swapon /dev/mapper/vg0-swap
+mount -o noatime,compress=lzo,space_cache=v2,subvol=@ /dev/sdx3crypt /mnt
+mkdir /mnt/home
+mkdir /mnt/.snapshots
 mkdir /mnt/boot
 mount /dev/sdx2 /mnt/boot
 mkdir /mnt/boot/efi
 mount /dev/sdx1 /mnt/boot/efi
+mount -o noatime,compress=lzo,space_cache=v2,subvol=@home /dev/sdx3crypt /mnt/home
+mount -o noatime,compress=lzo,space_cache=v2,subvol=@snapshots /dev/sdx3crypt /mnt/.snapshots
 -Rank mirrors
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 reflector --age 12 --country Russia,Belarus --sort rate --save /etc/pacman.d/mirrorlist
@@ -65,18 +68,17 @@ locale-gen
 passwd
 - Configure mkinitcpio with modules needed for the initrd image
 vim /etc/mkinitcpio.conf
--Add 'ext4' to MODULES
--Add 'encrypt', 'lvm2' and ‘resume’ ’to HOOKS before filesystems
+-Add 'encrypt', 'lvm2' and ‘resume’ ’to HOOKS before filesystems. 'Resume' for the future needed hibernation
 -To make it look like this
 HOOKS=(base udev autodetect modconf block encrypt lvm2 resume filesystems keyboard keymap consolefont fsck)
 -Save Close
 -Regenerate initrd image
 mkinitcpio -p linux
 -Setup grub
-pacman -S grub efibootmgr
+pacman -S grub-btrfs efibootmgr
 grub-install --efi-directory=/boot/efi
 vim /etc/default/grub 
--Edit the line GRUB_CMDLINE_LINUX to GRUB_CMDLINE_LINUX="cryptdevice=/dev/sda3:luks:allow-discards resume=/dev/mapper/vg0-swap" 
+-Edit the line GRUB_CMDLINE_LINUX to GRUB_CMDLINE_LINUX="cryptdevice=/dev/sda3:luks:allow-discards" 
 -Save Close
 grub-mkconfig -o /boot/grub/grub.cfg
 exit
